@@ -1,0 +1,25 @@
+.logo {
+  font-size: 3rem;
+  color: #f38e82;
+  font-weight: bold;
+  font-style: italic;
+  margin-right: 6rem;
+}
+.container_nav {
+  display: flex;
+  width: 100%;
+  background-color: #f2efee;
+  margin-bottom: 10rem;
+  padding: 2rem 4rem;
+}
+
+.nav_link {
+  text-decoration: none;
+  font-size: 4rem;
+  color: #615551;
+  margin-right: 4rem;
+}
+
+.nav_link:hover {
+  color: #f38e82;
+}

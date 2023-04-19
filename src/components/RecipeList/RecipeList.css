@@ -1,0 +1,25 @@
+.container_list {
+  width: 100%;
+  text-align: center;
+}
+
+.recipe_img {
+  width: 100%;
+  height: 40rem;
+  margin-bottom: 2rem;
+}
+
+.text__list {
+  font-size: 3rem;
+}
+.btn-grey {
+  font-size: 2rem;
+  /* background-image: linear-gradient(to right bottom, #f9f5f3, #615551); */
+}
+
+.discreption__list {
+  color: #615551;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,8 @@
+.container_saved {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 4rem;
+  row-gap: 4rem;
+}
