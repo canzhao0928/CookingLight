@@ -20,7 +20,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Install dependencies and run unit tests
-        run: npm install && npm run testß
+        run: npm install && npm run test
 
       - name: Build React App
         run: REACT_APP_RecipeDB_API_KEY=${{ secrets.API_KEY}} npm run build
