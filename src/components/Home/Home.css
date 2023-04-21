@@ -1,0 +1,28 @@
+.heading_secondary {
+  text-align: left;
+  font-size: 3rem;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10rem;
+  /* display: flex;
+  justify-content: center; */
+}
+
+a {
+  text-decoration: none;
+  color: #615551;
+}
+
+/* doesn't work in matetialUI */
+a:hover {
+  transform: scale(1.07);
+}
+
+.grid-col-2 {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

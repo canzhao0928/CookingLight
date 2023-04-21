@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { RecipeDB_API_KEY, SavedRecipes } from "../RecipeDB";
+import { RecipeDB_API_KEY } from "../RecipeDB";
 import {
   AiOutlineFieldTime,
   AiOutlineTeam,
@@ -33,22 +33,36 @@ const RecipeDetail = () => {
         setRecipe(response);
       })
       .catch((err) => console.error(err));
-    if (SavedRecipes.some((r) => r.id === params.recipeID)) setLiked(true);
+
+    const savedRecipes = JSON.parse(
+      localStorage.getItem("savedRecipes") || "[]"
+    );
+    if (savedRecipes.some((r) => r.id === +params.recipeID)) setLiked(true);
   }, [params.recipeID]);
 
   const handleLiked = () => {
-    if (!liked && !SavedRecipes.some((r) => r.id === recipe.id)) {
-      SavedRecipes.push(recipe);
+    //update saved recipes in local storage
+    const savedRecipes = JSON.parse(
+      localStorage.getItem("savedRecipes") || "[]"
+    );
+    if (!liked && !savedRecipes.some((r) => r.id === recipe.id)) {
+      savedRecipes.push(recipe);
+      localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
     } else if (liked) {
-      SavedRecipes = SavedRecipes.filter((r) => r.id !== recipe.id);
+      localStorage.setItem(
+        "savedRecipes",
+        JSON.stringify(savedRecipes.filter((r) => r.id !== recipe.id))
+      );
     }
+
+    //update liked state
     setLiked(!liked);
   };
 
   return (
-    <div className="container">
+    <div className="detail__container">
       <div className="recipe__fig">
-        <img src={recipe.thumbnail_url} alt="recipe" className="recipe__img" />
+        <img src={recipe.thumbnail_url} alt="food" className="recipe__img" />
         <h1 className="recipe__title">
           <span>{recipe.name}</span>
         </h1>

@@ -8,7 +8,7 @@ html {
   font-size: 62.5%;
 }
 
-.container {
+.detail__container {
   width: 80%;
   min-height: 117rem;
   margin: 4vw auto;
