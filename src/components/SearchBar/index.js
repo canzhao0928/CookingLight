@@ -17,13 +17,21 @@ const SearchBar = () => {
     setValue(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="container__search">
       <input
         className="input__search"
         placeholder="Name of food or ingredients"
-        name={value}
         onChange={handleChange}
+        value={value}
+        type="text"
+        onKeyDown={handleKeyDown}
       />
       <button className="btn" onClick={handleSearch}>
         Search

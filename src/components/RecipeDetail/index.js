@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { RecipeDB_API_KEY } from "../RecipeDB";
+import { RecipeDB_API_KEY, RecipeDB_API_URL } from "../RecipeDB";
 import {
   AiOutlineFieldTime,
   AiOutlineTeam,
@@ -9,6 +9,7 @@ import {
   AiOutlineCheckSquare,
 } from "react-icons/ai";
 import "./RecipeDetail.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const RecipeDetail = () => {
   const params = useParams();
@@ -20,16 +21,15 @@ const RecipeDetail = () => {
       method: "GET",
       headers: {
         "X-RapidAPI-Key": RecipeDB_API_KEY,
-        "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+        "X-RapidAPI-Host": RecipeDB_API_URL,
       },
     };
     fetch(
-      `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${params.recipeID}`,
+      `https://${RecipeDB_API_URL}/recipes/get-more-info?id=${params.recipeID}`,
       options
     )
       .then((response) => response.json())
       .then((response) => {
-        // console.log(response.instructions);
         setRecipe(response);
       })
       .catch((err) => console.error(err));
@@ -47,6 +47,7 @@ const RecipeDetail = () => {
     );
     if (!liked && !savedRecipes.some((r) => r.id === recipe.id)) {
       savedRecipes.push(recipe);
+      console.log(savedRecipes);
       localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
     } else if (liked) {
       localStorage.setItem(
@@ -59,7 +60,12 @@ const RecipeDetail = () => {
     setLiked(!liked);
   };
 
-  return (
+  console.log(recipe);
+  return JSON.stringify(recipe) === "{}" ? (
+    <div className="container center">
+      <CircularProgress />
+    </div>
+  ) : (
     <div className="detail__container">
       <div className="recipe__fig">
         <img src={recipe.thumbnail_url} alt="food" className="recipe__img" />

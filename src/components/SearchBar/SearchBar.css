@@ -20,7 +20,7 @@
 
 .input__search:focus {
   outline: none;
-  border: 1px solid #f38e82;
+  border: 1px solid #f97b22;
   background-color: #f9f5f3;
 }
 
@@ -34,7 +34,7 @@
   align-items: center;
   transition: all 0.2s;
   padding: 1rem 2rem;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .btn:hover {

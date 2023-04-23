@@ -1,27 +1,27 @@
 .logo {
   font-size: 3rem;
-  color: #f38e82;
+  color: #f97b22;
   font-weight: bold;
   font-style: italic;
 }
 .container_nav {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
-  background-color: #f2efee;
+  background-color: #363636;
   margin-bottom: 10rem;
   padding: 2rem 4rem;
 }
 
 .nav_link {
   text-decoration: none;
-  font-size: 4rem;
-  color: #615551;
+  font-size: 3rem;
+  color: #ffffff;
   margin-right: 4rem;
 }
 
 .nav_link:hover {
-  color: #f38e82;
+  color: #f97b22;
 }
 
 .container_links {
