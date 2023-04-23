@@ -1,7 +1,13 @@
 import RecipeList from "../RecipeList";
+import { useEffect, useState } from "react";
 import "./Saved.css";
 const Saved = () => {
-  const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes") || []);
+  const [savedRecipes, setSavedRecipes] = useState([]);
+  useEffect(() => {
+    if (!localStorage.getItem("savedRecipes"))
+      localStorage.setItem("savedRecipes", JSON.stringify([]));
+    setSavedRecipes(JSON.parse(localStorage.getItem("savedRecipes")));
+  }, []);
   return (
     <>
       {savedRecipes.length === 0 ? (
